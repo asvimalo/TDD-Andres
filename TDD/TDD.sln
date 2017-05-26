@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank", "Bank\Bank.csproj", "{98E05CE3-7AA6-4DFD-B4CD-DE3E9D05F2C7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bank.tests", "bank.tests\bank.tests.csproj", "{2B1F771F-22A8-4366-B63C-A9DE0B743A42}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationEngineTests", "ValidationEngineTests\ValidationEngineTests.csproj", "{619B25DB-CDD8-41B8-9829-1554080BE6E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationEngine", "ValidationEngine\ValidationEngine.csproj", "{0898F949-3A17-4A69-8D00-527D9BE4484E}"
@@ -21,14 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{98E05CE3-7AA6-4DFD-B4CD-DE3E9D05F2C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98E05CE3-7AA6-4DFD-B4CD-DE3E9D05F2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98E05CE3-7AA6-4DFD-B4CD-DE3E9D05F2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98E05CE3-7AA6-4DFD-B4CD-DE3E9D05F2C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2B1F771F-22A8-4366-B63C-A9DE0B743A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B1F771F-22A8-4366-B63C-A9DE0B743A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B1F771F-22A8-4366-B63C-A9DE0B743A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B1F771F-22A8-4366-B63C-A9DE0B743A42}.Release|Any CPU.Build.0 = Release|Any CPU
 		{619B25DB-CDD8-41B8-9829-1554080BE6E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{619B25DB-CDD8-41B8-9829-1554080BE6E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{619B25DB-CDD8-41B8-9829-1554080BE6E0}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -2,11 +2,11 @@
 
 namespace TravelAgency
 {
-    internal class Tour
+    public class Tour
     {
-        private int Seats;
-        private string Name;
-        private DateTime Date;
+        public int Seats { get; private set; }
+        public string Name { get; private set; }
+        public DateTime Date { get; private set; }
 
         public Tour(string name, DateTime when, int seats)
         {
