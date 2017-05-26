@@ -66,6 +66,9 @@ namespace TravelAgency.Tests
             sut.CreateTour(
                "DiaDesp",
                new DateTime(2013, 1, 2), 20);
+
+            //Uncomment to test exception a 4th Tour the same day:
+
             //sut.CreateTour(
             //    "zzz",
             //    new DateTime(2013, 1, 1), 20);
@@ -73,5 +76,19 @@ namespace TravelAgency.Tests
             var toursInThisDate = sut.GetToursFor(new DateTime(2013, 1, 1));
             Assert.AreEqual(3, toursInThisDate.Count);
         }
+        [Test]
+        public void CannotPlaceOverlappingBookings()
+        {
+            sut.CreateTour(
+               "R",
+               new DateTime(2013, 1, 1, 10, 15, 0), 20);
+            sut.CreateTour(
+                "New years day safari",
+                new DateTime(2013, 1, 1), 20);
+            sut.CreateTour(
+                "X",
+                new DateTime(2013, 1, 1), 20);
+
+            Assert.Throws<TourAllocationException>(() => sut.CreateTour("Tina", new DateTime(2013, 1, 1), 20)); }
     }
 }

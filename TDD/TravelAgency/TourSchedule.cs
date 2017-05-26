@@ -19,12 +19,14 @@ namespace TravelAgency
         {
             //var dayTours = GetToursFor(when.Date);
             //var bookedTours = dayTours.Count;
+
             if (!OverlapExists(when.Date))
             {
                 ScheduledTours[when.Date].Add(new Tour(name, when.Date, seats));
             }
             else
                 throw new TourAllocationException("Can t add more than 3");
+
             //if(GetToursFor(when.Date).Count < 3)
             //    ScheduledTours[when.Date].Add(new Tour(name, when.Date, seats));
             //else if (GetToursFor(when.Date).Count == 3)

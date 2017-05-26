@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace TravelAgency
 {
     [Serializable]
-    internal class TourAllocationException : Exception
+    public class TourAllocationException : Exception
     {
         public TourAllocationException()
         {
