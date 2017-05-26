@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationEngineTests", "Va
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationEngine", "ValidationEngine\ValidationEngine.csproj", "{0898F949-3A17-4A69-8D00-527D9BE4484E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgency", "TravelAgency\TravelAgency.csproj", "{3ECB856C-2358-4581-8D26-2F853FFED386}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgency.Tests", "TravelAgency.Tests\TravelAgency.Tests.csproj", "{4E2FC91A-E669-4F27-BB07-7ADCF6475A8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{0898F949-3A17-4A69-8D00-527D9BE4484E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0898F949-3A17-4A69-8D00-527D9BE4484E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0898F949-3A17-4A69-8D00-527D9BE4484E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ECB856C-2358-4581-8D26-2F853FFED386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ECB856C-2358-4581-8D26-2F853FFED386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ECB856C-2358-4581-8D26-2F853FFED386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ECB856C-2358-4581-8D26-2F853FFED386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E2FC91A-E669-4F27-BB07-7ADCF6475A8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E2FC91A-E669-4F27-BB07-7ADCF6475A8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E2FC91A-E669-4F27-BB07-7ADCF6475A8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E2FC91A-E669-4F27-BB07-7ADCF6475A8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
