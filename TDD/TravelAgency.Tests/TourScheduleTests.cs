@@ -21,6 +21,7 @@ namespace TravelAgency.Tests
             sut.OpenTour(new DateTime(2013, 1, 1, 9, 0, 0));
             sut.OpenTour(new DateTime(2013, 1, 2, 9, 0, 0));
             sut.OpenTour(new DateTime(2013, 1, 3, 9, 0, 0));
+            sut.OpenTour(new DateTime(2013, 1, 4, 9, 0, 0));
         }
         [Test]
         public void CanCreateNewTour()
@@ -81,6 +82,25 @@ namespace TravelAgency.Tests
         {
             sut.CreateTour(
                "R",
+               new DateTime(2013, 1, 3, 10, 15, 0), 20);
+            sut.CreateTour(
+                "New years day safari",
+                new DateTime(2013, 1, 3), 20);
+            sut.CreateTour(
+                "X",
+                new DateTime(2013, 1, 3), 20);
+           
+            sut.CreateTour(
+               "R",
+               new DateTime(2013, 1, 2, 10, 15, 0), 20);
+            sut.CreateTour(
+                "New years day safari",
+                new DateTime(2013, 1, 2), 20);
+            sut.CreateTour(
+                "X",
+                new DateTime(2013, 1, 2), 20);
+            sut.CreateTour(
+               "R",
                new DateTime(2013, 1, 1, 10, 15, 0), 20);
             sut.CreateTour(
                 "New years day safari",
@@ -88,12 +108,42 @@ namespace TravelAgency.Tests
             sut.CreateTour(
                 "X",
                 new DateTime(2013, 1, 1), 20);
-            // If uncomment generate TourAllocationException with suggestion date
-            sut.CreateTour(
-               "X",
-               new DateTime(2013, 1, 1), 20);
-            //Assert.Throws<TourAllocationException>(() => sut.CreateTour("Tina", new DateTime(2013, 1, 1), 20));
+            // If uncomment generate TourAllocationException with suggestion date, failing the test
+            //sut.CreateTour(
+            //    "X",
+            //    new DateTime(2013, 1, 1), 20);
+            Assert.Throws<TourAllocationException>(() => sut.CreateTour("CH", new DateTime(2013, 1, 1), 20));
           
+        }
+        [Test]
+        public void CannotEnterANegativeOrNullSeats()
+        {
+            //sut.CreateTour(
+            //   "R",
+            //   new DateTime(2013, 1, 3, 10, 15, 0), 0);
+            
+            Assert.Throws<TourAllocationException>(() => sut.CreateTour("CH", new DateTime(2013, 1, 1), 0));
+
+        }
+        [Test]
+        public void CannotEnterARepeatedName()
+        {
+            
+            sut.CreateTour(
+               "R",
+               new DateTime(2013, 1, 1), 20);
+            sut.CreateTour(
+                "New years day safari",
+                new DateTime(2013, 1, 2), 20);
+            sut.CreateTour(
+                "X",
+                new DateTime(2013, 1, 1), 20);
+            //sut.CreateTour(
+            //   "R",
+            //   new DateTime(2013, 1, 1), 20);
+
+            Assert.Throws<TourAllocationException>(() => sut.CreateTour("R", new DateTime(2013, 1, 1), 10));
+
         }
 
     }

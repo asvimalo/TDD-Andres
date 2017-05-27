@@ -20,19 +20,22 @@ namespace TravelAgency
             //var dayTours = GetToursFor(when.Date);
             //var bookedTours = dayTours.Count;
 
-            if (!OverlapExists(when.Date))
-            {
-                ScheduledTours[when.Date].Add(new Tour(name, when.Date, seats));
-            }
+            //if (!OverlapExists(when.Date) && !NameExists(name,when) && !SeatsNegative(seats))
+            //{
+            //      ScheduledTours[when.Date].Add(new Tour(name, when.Date, seats));    
+            //}
+
+            if (OverlapExists(when.Date))
+                throw new TourAllocationException("Suggested date: " + SuggestedDayFor(when.Date).ToString());
+            else if(NameExists(name, when))
+                throw new TourAllocationException("Name already in use...");
+            else if (SeatsNegative(seats))
+                throw new TourAllocationException("Please enter number of seats...");
             else
-                throw new TourAllocationException("Suggested date: "+ SuggestedDayFor(when.Date).ToString());
+                ScheduledTours[when.Date].Add(new Tour(name, when.Date, seats));
 
-            //if(GetToursFor(when.Date).Count < 3)
-            //    ScheduledTours[when.Date].Add(new Tour(name, when.Date, seats));
-            //else if (GetToursFor(when.Date).Count == 3)
-            //    throw new TourAllocationException("Can t add more than 3");
 
-            //ScheduledTours[when.Date].Add(new Tour(name, when.Date, seats));
+            
 
         }
 
@@ -49,6 +52,28 @@ namespace TravelAgency
             else
                 return true;
         }
+        public bool NameExists(string name, DateTime date)
+        {
+            bool answer = false;
+            var dayTours = GetToursFor(date.Date);
+            foreach (var tour in dayTours)
+            {
+                if (tour.Name == name)
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+            return answer;
+        }
+        public bool SeatsNegative(int seats)
+        {           
+            if (seats <= 0)
+                return true;
+            else
+                return false;
+        }
 
         public DateTime? SuggestedDayFor(DateTime when)
         {
@@ -58,13 +83,13 @@ namespace TravelAgency
                 return when.Date;
             else
             {
-                var dayTours2 = GetToursFor(when.AddDays(1).Date);
-                var bookedTours2 = dayTours.Count;
-                if (bookedTours2 < 3 && bookedTours >= 0)
+                var dayToursNext = GetToursFor(when.AddDays(1).Date);
+                var bookedToursNext = dayToursNext.Count;
+                if (bookedToursNext < 3 && bookedToursNext >= 0)
                 {
                     return when.AddDays(1).Date;
                 }
-                return when.AddDays(2).Date;
+                return SuggestedDayFor(when.AddDays(1).Date);
             }
                
         }
