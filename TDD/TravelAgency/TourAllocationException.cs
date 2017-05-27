@@ -6,12 +6,15 @@ namespace TravelAgency
     [Serializable]
     public class TourAllocationException : Exception
     {
-        public TourAllocationException()
+        public DateTime? SuggestedTime { get; private set; }
+        public TourAllocationException(DateTime? suggestedTime)
         {
+            SuggestedTime = suggestedTime;
         }
 
         public TourAllocationException(string message) : base(message)
         {
+            
         }
 
         public TourAllocationException(string message, Exception innerException) : base(message, innerException)

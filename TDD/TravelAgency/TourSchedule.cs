@@ -25,7 +25,7 @@ namespace TravelAgency
                 ScheduledTours[when.Date].Add(new Tour(name, when.Date, seats));
             }
             else
-                throw new TourAllocationException("Can t add more than 3");
+                throw new TourAllocationException("Suggested date: "+ SuggestedDayFor(when.Date).ToString());
 
             //if(GetToursFor(when.Date).Count < 3)
             //    ScheduledTours[when.Date].Add(new Tour(name, when.Date, seats));
@@ -48,6 +48,25 @@ namespace TravelAgency
                 return false;
             else
                 return true;
+        }
+
+        public DateTime? SuggestedDayFor(DateTime when)
+        {
+            var dayTours = GetToursFor(when.Date);
+            var bookedTours = dayTours.Count;
+            if ((bookedTours < 3  && bookedTours >= 0) /*|| bookedTours == null*/)
+                return when.Date;
+            else
+            {
+                var dayTours2 = GetToursFor(when.AddDays(1).Date);
+                var bookedTours2 = dayTours.Count;
+                if (bookedTours2 < 3 && bookedTours >= 0)
+                {
+                    return when.AddDays(1).Date;
+                }
+                return when.AddDays(2).Date;
+            }
+               
         }
     }
 }
