@@ -10,8 +10,9 @@ namespace TDD_Kata
     {
         public int Add(string numbers)
         {
+           
             //string[] split = null;
-            char[] delim = { ',','\n',';'};
+            char[] delim = { ',','\n',';','*','%', '"'};
 
             if (String.IsNullOrEmpty(numbers))
             {
@@ -25,7 +26,23 @@ namespace TDD_Kata
             }
             else
             {
-                return numbers.Split(delim).Sum(x => int.Parse(x));
+                var sum = 0;
+                var ReactoredNumbers = numbers.Split(delim);
+
+                foreach (var number in ReactoredNumbers)
+                {
+                    var num = Int32.Parse(number.ToString());
+
+                    if (num >= 0 && num <= 1000)
+                        sum += num;
+                    else if (num < 0)
+                        throw new NegativeNumberException("Negative numbers are not allowed: " + num);
+                    //else if (num > 1000)
+                    //    return sum;
+                        //throw new OverOneThousandException("You overpassed 1000 with your last add: " + (sum + num));
+                }
+                return sum;
+                
             }
                 
                  
